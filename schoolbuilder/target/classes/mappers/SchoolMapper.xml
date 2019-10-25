@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.schoolbuilder.mapper.SchoolMapper">
+    <resultMap id="userList" type="com.micro.schoolbuilder.entity.School">
+        <result column="id" property="schoolId"/>
+        <result column="school_name" property="schoolName"/>
+    </resultMap>
+    <select id="getSchoolList" resultMap="userList">
+        select * from school
+    </select>
+
+
+    <insert id="addSchool" parameterType="com.micro.schoolbuilder.entity.School">
+        insert into school(id, school_name) values(#{schoolId}, #{schoolName})
+    </insert>
+
+    <delete id="deleteSchool" parameterType="java.lang.String">
+        delete from school where id = #{schoolId}
+    </delete>
+</mapper>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+
+<body>
+<h1>我的学校信息：</h1>
+
+<div th:each="school: ${mySchool}">
+    学校名称：<span th:text="${school.getSchoolName()}"></span>
+    <a th:href="'/delete/'+${school.getSchoolId()}">删除</a>
+</div>
+<br>
+<a href="/add">新建学校</a>
+</body>
+</html>
